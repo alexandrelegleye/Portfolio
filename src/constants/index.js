@@ -165,7 +165,7 @@ const projects = [
       },
     ],
     image: portfolio,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/alexandrelegleye/Portfolio",
     deploy_link: "https://alexandre-legleye.com/",
   },
   {
