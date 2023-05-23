@@ -16,6 +16,7 @@
     "framer-motion": "^10.12.7",
     "maath": "^0.5.3",
     "react": "^18.2.0",
+    "react-carousel3": "^1.0.0",
     "react-dom": "^18.2.0",
     "react-parallax-tilt": "^1.7.137",
     "react-router-dom": "^6.11.1",
