@@ -6,6 +6,8 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import french_flag from "./french_flag.png"
+import uk_flag from "./uk_flag.png"
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -22,8 +24,6 @@ import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import psql from "./tech/psql.png";
 import recoil from "./tech/recoil.svg";
-
-import meta from "./company/meta.png";
 
 import idfrog from "./idfrog.png";
 import weathermap from "./weathermap.png";
@@ -57,7 +57,6 @@ export {
   tailwind,
   typescript,
   threejs,
-  meta,
   psql,
   cospi,
   weathermap,
@@ -66,5 +65,7 @@ export {
   oclock,
   psa,
   poleemploi,
-  recoil
+  recoil,
+  french_flag,
+  uk_flag
 };

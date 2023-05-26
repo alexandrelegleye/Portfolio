@@ -3,11 +3,15 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import {styles} from '../styles';
 import { navLinks } from '../constants';
-import {logo, menu, close} from '../assets';
+import {logo, menu, close, french_flag, uk_flag} from '../assets';
+import { useSetRecoilState } from 'recoil';
+import { choosenLangstate } from '../Recoil/Atomes';
 
 const Navbar = () => {
   const [active, setActive] =useState('');
   const [toggle, setToggle] = useState(false);
+  const setLang = useSetRecoilState(choosenLangstate)
+
   
   return (
     <nav
@@ -22,12 +26,26 @@ const Navbar = () => {
             window.scrollTo(0,0);
           }}
         >
+
+          <img
+            src={french_flag}
+            alt='french flag'
+            className='w-5'
+            onClick={() => setLang({lang:'fr'})}
+          />
+          <img src={uk_flag}
+            alt='uk flag'
+            className='w-5'
+            onClick={() => setLang({lang:'en'})}
+          />
+
+      
           <img src={logo} alt='logo' className='w-9 h-9 object-contain'/>
           <p
-            className='text-white text-[18px] font-bold cursor-pointer flex'
+            className='text-white text-[18px] font-bold cursor-pointer flex flex-wrap'
           >
-          Alexandre &nbsp; <span
-              className='sm:block hidden'>
+            Alexandre &nbsp;
+            <span className='sm:flex hidden'>
             | Développeur Full-Stack
             </span>
           </p>
@@ -48,6 +66,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
         <div
           className='sm:hidden flex flex flex-1 justify-end items-center'>
           <img src={toggle ? close : menu}
