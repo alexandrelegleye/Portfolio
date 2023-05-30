@@ -9,7 +9,7 @@ const { persistAtom } = recoilPersist({
 export const choosenLangstate = atom({
   key: "choosenLang",
   default: {
-    lang: "en",
+    lang: "fr",
   },
   effects_UNSTABLE: [persistAtom],
 })

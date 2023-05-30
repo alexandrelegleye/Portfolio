@@ -7,8 +7,10 @@ import { styles } from "../styles"
 import {experiences} from '../constants'
 import {SectionWrapper} from '../hoc'
 import { textVariant } from "../utils/motion"
+import { useRecoilValue } from "recoil";
+import { choosenLangstate } from "../Recoil/Atomes";
 
-const ExperienceCard =({experience}) => (
+const ExperienceCard =({experience, lang}) => (
   <VerticalTimelineElement
     contentStyle={{background: '#1d1836', color:'#fff'}}
     contentArrowStyle={{borderRight:'7px solid #232631'}}
@@ -48,6 +50,9 @@ const ExperienceCard =({experience}) => (
 )
 
 const Experience = () => {
+
+  const {lang}=useRecoilValue(choosenLangstate)
+
   return (
     <>
       <motion.div
@@ -59,7 +64,11 @@ const Experience = () => {
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
           {experiences.map((experience,index) => (
-            <ExperienceCard key={index} experience={experience}/>
+            <ExperienceCard
+              key={index}
+              experience={experience}
+              lang={lang}
+            />
           ))}
         </VerticalTimeline>
       </div>

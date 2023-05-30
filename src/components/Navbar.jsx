@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import {styles} from '../styles';
 import { navLinks } from '../constants';
 import {logo, menu, close, french_flag, uk_flag} from '../assets';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState,  } from 'recoil';
 import { choosenLangstate } from '../Recoil/Atomes';
+import { translations } from '../assets/translations/lang';
 
 const Navbar = () => {
   const [active, setActive] =useState('');
   const [toggle, setToggle] = useState(false);
-  const setLang = useSetRecoilState(choosenLangstate)
+  const [{lang}, setLang] = useRecoilState(choosenLangstate)
 
-  
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
@@ -46,7 +46,7 @@ const Navbar = () => {
           >
             Alexandre &nbsp;
             <span className='sm:flex hidden'>
-            | Développeur Full-Stack
+            | {translations[lang]['navBar']['job']}
             </span>
           </p>
         </Link>
@@ -55,14 +55,14 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title
+                active === link.title[lang]
                   ? 'text-white'
                   : 'text-secondary'
               } hover:text-white text-[18px] font-medium cursor-pointer
             `}
-              onClick={()=> setActive(link.title)}
+              onClick={()=> setActive(link.title[lang])}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={`#${link.id}`}>{link.title[lang]}</a>
             </li>
           ))}
         </ul>
@@ -84,17 +84,17 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title
+                    active === link.title[lang]
                       ? 'text-white'
                       : 'text-secondary'
                   } font-poppins font-medium cursor-pointer text-[16px]
             `}
                   onClick={()=> {
                     setToggle(!toggle);
-                    setActive(link.title)
+                    setActive(link.title[lang])
                   }}
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
+                  <a href={`#${link.id}`}>{link.title[lang]}</a>
                 </li>
               ))}
               
