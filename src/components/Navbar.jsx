@@ -3,17 +3,33 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import {styles} from '../styles';
 import { navLinks } from '../constants';
-import {logo, menu, close} from '../assets';
+import {logo, menu, close, french_flag, uk_flag} from '../assets';
+import { useRecoilState,  } from 'recoil';
+import { choosenLangstate } from '../Recoil/Atomes';
+import { translations } from '../assets/translations/lang';
 
 const Navbar = () => {
   const [active, setActive] =useState('');
   const [toggle, setToggle] = useState(false);
-  
+  const [{lang}, setLang] = useRecoilState(choosenLangstate)
+
   return (
     <nav
       className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 bg-primary`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+        <img
+          src={french_flag}
+          alt='french flag'
+          className='w-5'
+          onClick={() => setLang({lang:'fr'})}
+        />
+        <img src={uk_flag}
+          alt='uk flag'
+          className='w-5'
+          onClick={() => setLang({lang:'en'})}
+        />
+          
         <Link
           to='/'
           className='flex items-center gap-2'
@@ -22,13 +38,14 @@ const Navbar = () => {
             window.scrollTo(0,0);
           }}
         >
+          
           <img src={logo} alt='logo' className='w-9 h-9 object-contain'/>
           <p
-            className='text-white text-[18px] font-bold cursor-pointer flex'
+            className='text-white text-[18px] font-bold cursor-pointer flex flex-wrap'
           >
-          Alexandre &nbsp; <span
-              className='sm:block hidden'>
-            | Développeur Full-Stack
+            Alexandre &nbsp;
+            <span className='sm:flex hidden'>
+            | {translations[lang]['navBar']['job']}
             </span>
           </p>
         </Link>
@@ -37,17 +54,18 @@ const Navbar = () => {
             <li
               key={link.id}
               className={`${
-                active === link.title
+                active === link.title[lang]
                   ? 'text-white'
                   : 'text-secondary'
               } hover:text-white text-[18px] font-medium cursor-pointer
             `}
-              onClick={()=> setActive(link.title)}
+              onClick={()=> setActive(link.title[lang])}
             >
-              <a href={`#${link.id}`}>{link.title}</a>
+              <a href={`#${link.id}`}>{link.title[lang]}</a>
             </li>
           ))}
         </ul>
+
         <div
           className='sm:hidden flex flex flex-1 justify-end items-center'>
           <img src={toggle ? close : menu}
@@ -65,17 +83,17 @@ const Navbar = () => {
                 <li
                   key={link.id}
                   className={`${
-                    active === link.title
+                    active === link.title[lang]
                       ? 'text-white'
                       : 'text-secondary'
                   } font-poppins font-medium cursor-pointer text-[16px]
             `}
                   onClick={()=> {
                     setToggle(!toggle);
-                    setActive(link.title)
+                    setActive(link.title[lang])
                   }}
                 >
-                  <a href={`#${link.id}`}>{link.title}</a>
+                  <a href={`#${link.id}`}>{link.title[lang]}</a>
                 </li>
               ))}
               
