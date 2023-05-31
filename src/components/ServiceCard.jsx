@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unknown-property */
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion'
 import {fadeIn} from '../utils/motion'
 import React from 'react';
 
 const ServiceCard = ({index, title, icon, lang}) => {
-  //console.log(lang);
 
   return (
     <Tilt

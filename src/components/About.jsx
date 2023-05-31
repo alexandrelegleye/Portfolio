@@ -42,7 +42,7 @@ const About = ({test}) => {
       <div className='mt-20 flex flex-wrap gap-10'>
         {services.map((service,index) => (
           <ServiceCard
-            key={service.title[lang]}
+            key={service['title'][lang]}
             index={index} {...service}
             lang={lang}
           />
