@@ -4,7 +4,7 @@ import ComputerImage from "../assets/ibm_computer_1981.jpg"
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full h-full mx-auto">
       <div
         className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7x1 mx-auto flex flex-row items-start gap-5`}
       >
@@ -29,7 +29,7 @@ const Hero = () => {
       </div>
       <img src={ComputerImage} alt='old computer image' />
      
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
+      <div className="sm:flex hidden absolute xs:bottom-1  bottom-3 w-full  justify-center items-center">
         <a href="#about">
           <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
             <motion.div
