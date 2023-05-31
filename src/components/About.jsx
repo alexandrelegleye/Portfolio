@@ -11,8 +11,10 @@ import { translations } from "../assets/translations/lang";
 import ServiceCard from "./ServiceCard";
 
 
-const About = () => {
+// eslint-disable-next-line react/prop-types
+const About = ({test}) => {
 
+  console.log('test',test);
   const {lang}= useRecoilValue(choosenLangstate)
 
   return (

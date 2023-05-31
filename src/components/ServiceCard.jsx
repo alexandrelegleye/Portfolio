@@ -4,7 +4,7 @@ import {fadeIn} from '../utils/motion'
 import React from 'react';
 
 const ServiceCard = ({index, title, icon, lang}) => {
-  console.log(lang);
+  //console.log(lang);
 
   return (
     <Tilt
