@@ -6,12 +6,15 @@ import {styles} from '../styles';
 import {SectionWrapper} from '../hoc';
 import { slideIn } from '../utils/motion';
 import cvlink from '../assets/CV_Legleye_Alexandre.pdf'
-
+import { useRecoilValue } from "recoil";
+import { choosenLangstate } from "../Recoil/Atomes";
+import { translations } from "../assets/translations/lang";
 
 
 
 const Contact = () => {
 
+  const {lang}= useRecoilValue(choosenLangstate)
   const ApiKey = import.meta.env.VITE_EMAIL_KEY
 
   const formRef = useRef();
@@ -46,7 +49,7 @@ const Contact = () => {
     )
       .then(() => {
         setLoading(false);
-        alert('Merci, je reviendrai vers vous rapidement');
+        alert(translations[lang]["contact"]["success"]);
 
         setForm({
           name:'',
@@ -56,7 +59,7 @@ const Contact = () => {
       }, (error) => {
         setLoading(false)
         console.log(error);
-        alert('Une erreur est apparue durant l\'envoi, merci de réessayer plus tard.')
+        alert(translations[lang]["contact"]["error"])
       })
   }
 
@@ -67,7 +70,7 @@ const Contact = () => {
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
         <p className={styles.sectionSubText}>
-        Rentrons en contact / <a className="text-white" href={cvlink} target='_blank' rel="noreferrer"> Mon CV </a>
+          {translations[lang]["contact"]["title"]} / <a className="text-white" href={cvlink} target='_blank' rel="noreferrer"> {translations[lang]["contact"]["cv"]} </a>
         </p>
         <h3 className={styles.sectionHeadText}>
         Contact
@@ -79,42 +82,42 @@ const Contact = () => {
         >
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>
-            Votre Nom
+              {translations[lang]["contact"]["nameLabel"]}
             </span>
             <input
               type='text'
               name='name'
               value={form.name}
               onChange={handleChange}
-              placeholder='Quel est votre nom ?'
+              placeholder={translations[lang]["contact"]["namePlaceHolder"]}
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
             />
           </label>
 
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>
-            Votre E-mail
+              {translations[lang]["contact"]["emailLabel"]}
             </span>
             <input
               type='email'
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder='Quel est votre email ?'
+              placeholder={translations[lang]["contact"]["emailPlaceHolder"]}
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
             />
           </label>
 
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>
-            Votre message
+              {translations[lang]["contact"]["messageLabel"]}
             </span>
             <textarea
               rows='7'
               name='message'
               value={form.message}
               onChange={handleChange}
-              placeholder='Quel est votre message ?'
+              placeholder={translations[lang]["contact"]["messagePlaceHolder"]}
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
             />
           </label>
@@ -123,20 +126,12 @@ const Contact = () => {
             type='submit'
             className='bg-tertiary py-3 px-8 outlined-none w-fit text-white font-bold shadow-md shadow-primary rounded-2xl'
           >
-            {loading ? 'Envoi en cours' : 'Envoyer'}
+            {loading ?  translations[lang]["contact"]["inProgress"] :  translations[lang]["contact"]["submit"]}
           </button>
 
         </form>
 
       </motion.div>
-
-      {/*<motion.div
-        variants={slideIn('right',"tween", 0.2,1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px}'
-      >
-        <EarthCanvas/> 
-      </motion.div>
-      */ }
     </div>
   )
 }

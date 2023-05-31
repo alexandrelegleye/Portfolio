@@ -25,8 +25,24 @@ export const translations = {
     feedbacks:{
       title:"Les Avis",
       subtitle:"Les Témoignagnes",
+    },
+    contact:{
+      title:"Rentrons en Contact",
+      cv:"Mon CV",
+      nameLabel:"Votre Nom",
+      namePlaceHolder:"Quel est votre nom?",
+      emailLabel:"Votre E-mail",
+      emailPlaceHolder:"Quel est votre email?",
+      messageLabel:"Votre message",
+      messagePlaceHolder:"Quel est votre message?",
+      submit:"Envoyer",
+      inProgress:"Envoi en cours",
+      success:"Merci, je reviendrai vers vous rapidement",
+      error:"An error appear, please try again later"
+
     }
   },
+
   en:{
     hero:{
       title:"Hello, I'm ",
@@ -53,6 +69,21 @@ export const translations = {
     feedbacks:{
       title:"Reviews",
       subtitle:"Testimonials",
+    },
+    contact:{
+      title:"Let's get in touch",
+      cv:"My Summary",
+      nameLabel:"Your name",
+      namePlaceHolder:"What's your name?",
+      emailLabel:"Your mail",
+      emailPlaceHolder:"What's your mail?",
+      messageLabel:"Your message",
+      messagePlaceHolder:"What's your message?",
+      submit:"Send",
+      inProgress:"Sending in progress",
+      success:"Thank's You, I will come back to you as soon as possible",
+      error:"An error appear, please try again later"
+
     }
 
   },
