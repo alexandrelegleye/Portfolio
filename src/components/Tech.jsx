@@ -7,7 +7,7 @@ const Tech = () => {
     <div
       className="flex flex-row flex-wrap justify-center gap-10"
     >
-      <Carousel autoPlay={true} width={400} height={400} yOrigin={42} yRadius={48}>
+      <Carousel autoPlay={true} width={'100%'} height={400} yOrigin={42} yRadius={48}>
 
         {technologies.map((technology) => (
           <div

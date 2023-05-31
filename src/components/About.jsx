@@ -12,9 +12,8 @@ import ServiceCard from "./ServiceCard";
 
 
 // eslint-disable-next-line react/prop-types
-const About = ({test}) => {
+const About = () => {
 
-  console.log('test',test);
   const {lang}= useRecoilValue(choosenLangstate)
 
   return (

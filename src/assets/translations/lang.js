@@ -16,6 +16,15 @@ export const translations = {
     experience:{
       title:"Mon Parcours",
       subtitle:"Professionnel"
+    },
+    work:{
+      title:"Mon Travail",
+      subtitle:"Mes Projets",
+      description:"Voici les différents projets sur lesquels j'ai pu travaillé actuellement afin de m'exercer. Chaque projet comporte une brève description ainsi qu'un lien vers le site en ligne et son repo github."
+    },
+    feedbacks:{
+      title:"Les Avis",
+      subtitle:"Les Témoignagnes",
     }
   },
   en:{
@@ -35,6 +44,15 @@ export const translations = {
     experience:{
       title:"What I have done so far",
       subtitle:"Work Experience"
+    },
+    work:{
+      title:"My Work",
+      subtitle:"My Projects",
+      description:"Here are the different projects on which I have currently worked in order to practice. Each project has a brief description and a link to the live site and its github repo.",
+    },
+    feedbacks:{
+      title:"Reviews",
+      subtitle:"Testimonials",
     }
 
   },
